@@ -218,7 +218,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestSerializer = [AWSJSONRequestSerializer new];
         _configuration.retryHandler = [[AWSDynamoDBRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.0"};
+        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.0",
+                                   @"Accept-Encoding" : @"gzip, deflate"};
 
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
